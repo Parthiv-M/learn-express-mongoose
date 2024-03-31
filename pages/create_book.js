@@ -7,7 +7,7 @@ function getAuthor(family_name, first_name) {
 }
 
 function getGenre(name) {
-  return Genre.find({name: name});
+  return Genre.find({ name: { $eq: name } }); // fix vuln
 }
 
 exports.new_book = async (res, family_name, first_name, genre_name, title) => {
